@@ -22,7 +22,7 @@ void ADC_Init(void)
 
 	AD1CON3bits.ADRC=0;
 	AD1CON3bits.SAMC=0b11110; 		//Auto-Sample Time = 30 Tad = 0.075 ms
-	AD1CON3bits.ADCS=0b00000101;	//Tad = 10 Tcy
+	AD1CON3bits.ADCS=0b00000100;	//Tad = 10 Tcy
 
 	AD1CSSL=0;
 
