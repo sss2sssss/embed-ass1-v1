@@ -28,7 +28,6 @@ void ADC_Init(void)
 
 	AD1CON2bits.VCFG=0b011;			//V+ and V- are Vref+ and Vref-, 3.3V
 	AD1CON2bits.CSCNA=0;
-	AD1CON2bits.BUFS=0;
 	AD1CON2bits.SMPI=0b0001;		//Set AD1IF after 2 samples
 	AD1CON2bits.BUFM=0;
 	AD1CON2bits.ALTS=0;

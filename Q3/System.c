@@ -3,12 +3,10 @@
 
 void MCU_Init(void)
 {
-	OSCCONbits.COSC = 0b000;		
-	OSCCONbits.LOCK = 0;
-	OSCCONbits.SOSCEN=0;
-	OSCCONbits.OSWEN-0;
-	OSCCONbits.CF=0;
-	OSCTUNbits.TUN=0b000000;			
+
+	OSCCONbits.SOSCEN=0;			//Disable secondary osc
+	OSCCONbits.OSWEN-0;				//no oscillator switch
+	OSCTUNbits.TUN=0b000000;		//no tuning, running at factory freq	
 
 	INTCON1bits.NSTDIS = 0;			// Interrupt nesting enabled
 	SRbits.IPL = 0;					// CPU interrupt priority level is 0
