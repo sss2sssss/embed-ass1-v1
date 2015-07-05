@@ -30,12 +30,13 @@ void Timer1_Init(void)
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 {
-	IFS0bits.T1IF = 0;
+	IFS0bits.T1IF = 0;		//reset timer1 interrupt flag to 0
 	LED_Blinking();
 }
 
 void LED_Blinking()
 {
+	//LED 3 always blink at 1 Hz
 	Cycle1++;
 	if(Cycle1<=50)
 		LED3=1;
@@ -44,6 +45,8 @@ void LED_Blinking()
 	else
 		Cycle1=0;
 	
+	
+	//Run when switch 1 is press
 	if(SW1==1)
 	{
 		switch(status)
@@ -100,6 +103,8 @@ void LED_Blinking()
 		}
 	}
 	
+	
+	//Run when switch 2 is press
 	if(SW2==1)
 	{
 		LED2=0;

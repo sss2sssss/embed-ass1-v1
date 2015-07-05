@@ -11,7 +11,7 @@ int main()
 	MCU_Init();
 	Timer1_Init();
 	IO_Init();
-	Timer1_ON;
+	Timer1_ON;		//starts 16bit timer
 
 	while(1)
 	{

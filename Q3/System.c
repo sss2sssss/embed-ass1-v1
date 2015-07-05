@@ -5,6 +5,7 @@ void MCU_Init(void)
 {
 
 	OSCCONbits.SOSCEN=0;			//Disable secondary osc
+	OSCCONbits.CF=0;				//clear clockfail flag
 	OSCCONbits.OSWEN-0;				//no oscillator switch
 	OSCTUNbits.TUN=0b000000;		//no tuning, running at factory freq	
 

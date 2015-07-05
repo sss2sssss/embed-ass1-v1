@@ -13,8 +13,8 @@ int main()
 	Timer1_Init();
 	IO_Init();
 	ADC_Init();
-	Timer1_ON;
-	ADC_ON;
+	Timer1_ON;		//start 16 bit timer
+	ADC_ON;			//turns on ADC module
 
 	while(1)
 	{
