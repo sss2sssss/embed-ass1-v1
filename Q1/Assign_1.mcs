@@ -13,7 +13,7 @@ SOLK=<src>|System.c|main.c|Timer1.c|IOCon.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
 [File001]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q1\main.o
 Folder=Intermediary
@@ -26,7 +26,7 @@ SOLK=<src>|System.c|main.c|Timer1.c|IOCon.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
 [File002]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q1\Timer1.o
 Folder=Intermediary
@@ -39,7 +39,7 @@ SOLK=<src>|System.c|main.c|Timer1.c|IOCon.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
 [File003]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q1\IOCon.o
 Folder=Intermediary
@@ -52,7 +52,7 @@ SOLK=<src>|System.c|main.c|Timer1.c|IOCon.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
-DebugOptions=-D__DEBUG
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
 [File004]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q1\Assign_1.cof
 Folder=Output
@@ -65,7 +65,7 @@ SOLK=<src>|System.c|main.c|Timer1.c|IOCon.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
-DebugOptions=--defsym=__MPLAB_DEBUG=1
+DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PICKIT2=1 --defsym=__ICD2RAM=1
 [File005]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q1\Assign_1.hex
 Folder=Output
@@ -78,7 +78,7 @@ SOLK=<src>|System.c|main.c|Timer1.c|IOCon.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
-DebugOptions=--defsym=__MPLAB_DEBUG=1
+DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PICKIT2=1 --defsym=__ICD2RAM=1
 [TOOL_LOC_STAMPS]
 tool_loc{B1442D91-FF1F-4E60-9714-C39C1BA9DB62}=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
 tool_loc{6836D8CA-42BB-48FB-9E77-3F0AA8005073}=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-ld.exe

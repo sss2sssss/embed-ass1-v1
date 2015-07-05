@@ -52,10 +52,10 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e                0xde           0x14d  (333)
-.dinit                       0x37c                 0x8             0xc  (12)
+.text                        0x29e                0xd2           0x13b  (315)
+.dinit                       0x370                 0x8             0xc  (12)
 
-                     Total program memory used (bytes):          0x246  (582) <1%
+                     Total program memory used (bytes):          0x234  (564) <1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -97,12 +97,12 @@ External Symbols in Program Memory (by address):
                   0x0002cc                  __T1Interrupt
                   0x0002f2                  _LED_Duty_Cycle
                   0x00033a                  _MCU_Init
-                  0x000368                  _main
-                  0x000374                  _IO_Init
+                  0x00035c                  _main
+                  0x000368                  _IO_Init
 
 External Symbols in Program Memory (by name):
 
-                  0x000374                  _IO_Init
+                  0x000368                  _IO_Init
                   0x0002f2                  _LED_Duty_Cycle
                   0x00033a                  _MCU_Init
                   0x00029e                  _Timer1_Init
@@ -112,7 +112,7 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000368                  _main
+                  0x00035c                  _main
 
 Memory Configuration
 
@@ -1082,17 +1082,17 @@ __c30_signature
  .nbss              0x0850          0x2 Timer1.o
                     0x0850                  Cycle
 
-.text             0x00029e         0xde
+.text             0x00029e         0xd2
  .text            0x00029e         0x9c Timer1.o
                   0x00029e                  Timer1_Init
                   0x0002cc                  _T1Interrupt
                   0x0002f2                  LED_Duty_Cycle
- .text            0x00033a         0x2e System.o
+ .text            0x00033a         0x22 System.o
                   0x00033a                  MCU_Init
- .text            0x000368          0xc main.o
-                  0x000368                  main
- .text            0x000374          0x8 IOCon.o
-                  0x000374                  IO_Init
+ .text            0x00035c          0xc main.o
+                  0x00035c                  main
+ .text            0x000368          0x8 IOCon.o
+                  0x000368                  IO_Init
 
-.dinit            0x00037c          0x8
- .dinit           0x00037c          0x8 data_init
+.dinit            0x000370          0x8
+ .dinit           0x000370          0x8 data_init

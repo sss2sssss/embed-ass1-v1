@@ -53,10 +53,10 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e               0x2f0           0x468  (1128)
-.dinit                       0x58e                 0xe            0x15  (21)
+.text                        0x29e               0x2e2           0x453  (1107)
+.dinit                       0x580                 0xe            0x15  (21)
 
-                     Total program memory used (bytes):          0x56a  (1386) 2%
+                     Total program memory used (bytes):          0x555  (1365) 2%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -114,18 +114,18 @@ External Symbols in Program Memory (by address):
                   0x0002cc                  __T1Interrupt
                   0x0002f2                  _LED_Blinking
                   0x000484                  _ADC_Init
-                  0x0004f0                  _ADC_Convert
-                  0x00053a                  _MCU_Init
-                  0x000568                  _IO_Init
-                  0x00057c                  _main
+                  0x0004ee                  _ADC_Convert
+                  0x000538                  _MCU_Init
+                  0x00055a                  _IO_Init
+                  0x00056e                  _main
 
 External Symbols in Program Memory (by name):
 
-                  0x0004f0                  _ADC_Convert
+                  0x0004ee                  _ADC_Convert
                   0x000484                  _ADC_Init
-                  0x000568                  _IO_Init
+                  0x00055a                  _IO_Init
                   0x0002f2                  _LED_Blinking
-                  0x00053a                  _MCU_Init
+                  0x000538                  _MCU_Init
                   0x00029e                  _Timer1_Init
                   0x00029a                  __DefaultInterrupt
                   0x0002cc                  __T1Interrupt
@@ -133,7 +133,7 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00057c                  _main
+                  0x00056e                  _main
 
 Memory Configuration
 
@@ -1115,20 +1115,20 @@ __c30_signature
                     0x085e                  count
                     0x0860                  ADCPtr
 
-.text             0x00029e        0x2f0
+.text             0x00029e        0x2e2
  .text            0x00029e        0x1e6 Timer1.o
                   0x00029e                  Timer1_Init
                   0x0002cc                  _T1Interrupt
                   0x0002f2                  LED_Blinking
- .text            0x000484         0xb6 ADC.o
+ .text            0x000484         0xb4 ADC.o
                   0x000484                  ADC_Init
-                  0x0004f0                  ADC_Convert
- .text            0x00053a         0x2e System.o
-                  0x00053a                  MCU_Init
- .text            0x000568         0x14 IOCon.o
-                  0x000568                  IO_Init
- .text            0x00057c         0x12 main.o
-                  0x00057c                  main
+                  0x0004ee                  ADC_Convert
+ .text            0x000538         0x22 System.o
+                  0x000538                  MCU_Init
+ .text            0x00055a         0x14 IOCon.o
+                  0x00055a                  IO_Init
+ .text            0x00056e         0x12 main.o
+                  0x00056e                  main
 
-.dinit            0x00058e          0xe
- .dinit           0x00058e          0xe data_init
+.dinit            0x000580          0xe
+ .dinit           0x000580          0xe data_init

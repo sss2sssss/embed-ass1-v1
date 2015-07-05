@@ -29,6 +29,8 @@ Command:
   -Tp24FJ64GA002.gld.00 \
   --defsym=__MPLAB_BUILD=1 \
   --defsym=__MPLAB_DEBUG=1 \
+  --defsym=__MPLAB_DEBUGGER_PICKIT2=1 \
+  --defsym=__ICD2RAM=1 \
   -Map=Assign_1.map \
   --report-mem \
   -start-group \
@@ -50,19 +52,20 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e                0xe6           0x159  (345)
-.dinit                       0x384                 0x8             0xc  (12)
+.text                        0x29e                0xda           0x147  (327)
+.dinit                       0x378                 0x8             0xc  (12)
 
-                     Total program memory used (bytes):          0x252  (594) <1%
+                     Total program memory used (bytes):          0x240  (576) <1%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0             0x4  (4)
+.icd                         0x800                0x50            0x50  (80)
+.nbss                        0x850                   0             0x4  (4)
 
-                        Total data memory used (bytes):            0x4  (4) <1%
+                        Total data memory used (bytes):           0x54  (84) 1%
 
 
 Dynamic Memory Usage
@@ -70,20 +73,20 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x804                              0x1ffc  (8188)
+stack                        0x854                              0x1fac  (8108)
 
-                        Maximum dynamic memory (bytes):         0x1ffc  (8188)
+                        Maximum dynamic memory (bytes):         0x1fac  (8108)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _DutyCycle1
-                    0x0802                  _DutyCycle2
+                    0x0850                  _DutyCycle1
+                    0x0852                  _DutyCycle2
 
 External Symbols in Data Memory (by name):
 
-                    0x0800                  _DutyCycle1
-                    0x0802                  _DutyCycle2
+                    0x0850                  _DutyCycle1
+                    0x0852                  _DutyCycle2
 
 External Symbols in Program Memory (by address):
 
@@ -96,12 +99,12 @@ External Symbols in Program Memory (by address):
                   0x0002cc                  __T1Interrupt
                   0x0002f2                  _LED_Duty_Cycle
                   0x000340                  _MCU_Init
-                  0x00036e                  _main
-                  0x00037a                  _IO_Init
+                  0x000362                  _main
+                  0x00036e                  _IO_Init
 
 External Symbols in Program Memory (by name):
 
-                  0x00037a                  _IO_Init
+                  0x00036e                  _IO_Init
                   0x0002f2                  _LED_Duty_Cycle
                   0x000340                  _MCU_Init
                   0x00029e                  _Timer1_Init
@@ -111,7 +114,7 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00036e                  _main
+                  0x000362                  _main
 
 Memory Configuration
 
@@ -179,6 +182,10 @@ __CONFIG2         0x00abfc          0x2
 __CONFIG1         0x00abfe          0x2
  *(__CONFIG1.sec*)
  __CONFIG1.sec    0x00abfe          0x2 main.o
+
+.icd                0x0800         0x50
+                    0x0850                  . = (. + DEFINED (__ICD2RAM)?0x50:0x0)
+ *fill*             0x0800         0x5000
 
 .comment
  *(.comment)
@@ -1047,6 +1054,8 @@ __CONFIG1         0x00abfe          0x2
                     0x0230                  _UART2 = 0x230
                     0x0001                  __MPLAB_BUILD = 0x1
                     0x0001                  __MPLAB_DEBUG = 0x1
+                    0x0001                  __MPLAB_DEBUGGER_PICKIT2 = 0x1
+                    0x0001                  __ICD2RAM = 0x1
 START GROUP
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-coff.a
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libm-coff.a
@@ -1071,22 +1080,22 @@ __c30_signature
  __c30_signature
                   0x00001e          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-coff.a(data_init_standard.o)
 
-.nbss               0x0800          0x4
- .nbss              0x0800          0x4 Timer1.o
-                    0x0800                  DutyCycle1
-                    0x0802                  DutyCycle2
+.nbss               0x0850          0x4
+ .nbss              0x0850          0x4 Timer1.o
+                    0x0850                  DutyCycle1
+                    0x0852                  DutyCycle2
 
-.text             0x00029e         0xe6
+.text             0x00029e         0xda
  .text            0x00029e         0xa2 Timer1.o
                   0x00029e                  Timer1_Init
                   0x0002cc                  _T1Interrupt
                   0x0002f2                  LED_Duty_Cycle
- .text            0x000340         0x2e System.o
+ .text            0x000340         0x22 System.o
                   0x000340                  MCU_Init
- .text            0x00036e          0xc main.o
-                  0x00036e                  main
- .text            0x00037a          0xa IOCon.o
-                  0x00037a                  IO_Init
+ .text            0x000362          0xc main.o
+                  0x000362                  main
+ .text            0x00036e          0xa IOCon.o
+                  0x00036e                  IO_Init
 
-.dinit            0x000384          0x8
- .dinit           0x000384          0x8 data_init
+.dinit            0x000378          0x8
+ .dinit           0x000378          0x8 data_init
