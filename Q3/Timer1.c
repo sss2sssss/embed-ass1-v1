@@ -47,6 +47,7 @@ void LED_Blinking()
 	
 	
 	//for SW1 and LED1
+	//LED1 operate as follow, switching to another when SW1 pressed : 1.OFF , 2.blinking at 0.5Hz, 3.blinking at 0.25Hz, 4.blinking at 0.125Hz
 	//"divider" the division of LED1 blinking frequency (1,2,4)  it is 0 when LED1 off
 	//"status" 0=LED1 off, 1=configuring divider, 2= blinking of LED1
 	//"cycle2" as counter for blinking LED1
@@ -107,13 +108,15 @@ void LED_Blinking()
 	}
 	
 	
-	//Run when switch 2 is press
-	if(SW2==1)
+	//for SW2 and LED2
+	//When SW2 is pressed, LED2 blink at the rate corresponds to the voltage @ analog input
+	//higher voltage, lower frequency // lower voltage, higher frequency
+	if(SW2==1)			//LED2 off when SW2 is not pressed
 	{
 		LED2=0;
 		Cycle3=0;
 	}
-	else if(SW2==0)
+	else if(SW2==0)		//SW2 pressed, cycle3 as counter,  cycle3counter is the ADCvalue
 	{
 		Cycle3++;
 		if(Cycle3<=(Cycle3Counter/2))
