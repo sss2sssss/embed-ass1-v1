@@ -8,7 +8,7 @@ void LED_Duty_Cycle();
 
 void Timer1_Init(void)
 {
-    Timer1_OFF;
+    Timer1_OFF;					//stop 16 bit timer
     T1CONbits.TSIDL = 0;		// Continue module operation in Idle mode
     T1CONbits.TSYNC = 0;		// do not synchonize internal clock
     T1CONbits.TGATE = 0;		// 0 for normal, 1 for gated
@@ -24,7 +24,7 @@ void Timer1_Init(void)
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 {
-	IFS0bits.T1IF = 0;
+	IFS0bits.T1IF = 0;			//reset timer1 interrupt flag to 0
 	LED_Duty_Cycle();
 }
 
@@ -32,7 +32,7 @@ void LED_Duty_Cycle()
 {
 	Cycle++;
 	if(Cycle<=200)
-		LED1=~LED1;
+		LED1=~LED1;						//toggle LED1
 	else if(Cycle>200 && Cycle<=400)
 		LED1=0;
 	else

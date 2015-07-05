@@ -30,12 +30,13 @@ void Timer1_Init(void)
 
 void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 {
-	IFS0bits.T1IF = 0;
+	IFS0bits.T1IF = 0;		//reset timer1 interrupt flag to 0
 	LED_Blinking();
 }
 
 void LED_Blinking()
 {
+	//LED 3 always blink at 1 Hz
 	Cycle1++;
 	if(Cycle1<=50)
 		LED3=1;
@@ -44,7 +45,13 @@ void LED_Blinking()
 	else
 		Cycle1=0;
 	
-	if(SW1==1)
+	
+	//for SW1 and LED1
+	//LED1 operate as follow, switching to another when SW1 pressed : 1.OFF , 2.blinking at 0.5Hz, 3.blinking at 0.25Hz, 4.blinking at 0.125Hz
+	//"divider" the division of LED1 blinking frequency (1,2,4)  it is 0 when LED1 off
+	//"status" 0=LED1 off, 1=configuring divider, 2= blinking of LED1
+	//"cycle2" as counter for blinking LED1
+	if(SW1==1)			//operation routine for LED 1 when SW1 not pressed
 	{
 		switch(status)
 		{
@@ -79,7 +86,7 @@ void LED_Blinking()
 				break;
 		}
 	}
-	else if(SW1==0)
+	else if(SW1==0)		//when SW1 is pressed
 	{
 		if(divider==0)
 		{
@@ -100,12 +107,16 @@ void LED_Blinking()
 		}
 	}
 	
-	if(SW2==1)
+	
+	//for SW2 and LED2
+	//When SW2 is pressed, LED2 blink at the rate corresponds to the voltage @ analog input
+	//higher voltage, lower frequency // lower voltage, higher frequency
+	if(SW2==1)			//LED2 off when SW2 is not pressed
 	{
 		LED2=0;
 		Cycle3=0;
 	}
-	else if(SW2==0)
+	else if(SW2==0)		//SW2 pressed, cycle3 as counter,  cycle3counter is the ADCvalue
 	{
 		Cycle3++;
 		if(Cycle3<=(Cycle3Counter/2))
