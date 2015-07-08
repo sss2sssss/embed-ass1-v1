@@ -8,8 +8,8 @@
 unsigned int Cycle1=0;
 unsigned int Cycle2=0;
 unsigned int Cycle3=0;
-int status=0;
-int divider=0;
+unsigned int dCycle=0;
+int status=0, divider=0;
 void LED_Blinking();
 
 void Timer1_Init(void)
@@ -119,11 +119,16 @@ void LED_Blinking()
 	else if(SW2==0)		//SW2 pressed, cycle3 as counter,  cycle3counter is the ADCvalue
 	{
 		Cycle3++;
-		if(Cycle3<=(Cycle3Counter/2))
-			LED2=1;
-		else if ((Cycle3>(Cycle3Counter/2)) && (Cycle3<=Cycle3Counter))
-			LED2=0;
+		if(Cycle3Counter>10&&Cycle3Counter<=1023)
+		{
+			if(Cycle3<=(Cycle3Counter/2))
+				LED2=1;
+			else if ((Cycle3>(Cycle3Counter/2)) && (Cycle3<=Cycle3Counter))
+				LED2=0;
+			else
+				Cycle3=0;
+		}
 		else
-			Cycle3=0;
+			LED2=0;
 	}
 }

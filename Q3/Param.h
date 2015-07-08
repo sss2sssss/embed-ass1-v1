@@ -7,10 +7,12 @@
 #define    LED3     LATBbits.LATB11
 
 // SW1 @ RB8/pin17  //  SW2 @ RB7/pin16
-#define    SW1		PORTBbits.RB8
-#define    SW2		PORTBbits.RB7
+#define    SW1_d		PORTBbits.RB8
+#define    SW2_d		PORTBbits.RB7
 
 // Extern Variable
 extern unsigned int avgADCValue;
+extern int SW1;
+extern int SW2;
 
 #endif

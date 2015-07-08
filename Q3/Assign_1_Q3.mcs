@@ -9,7 +9,7 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={B1442D91-FF1F-4E60-9714-C39C1BA9DB62}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -22,7 +22,7 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={B1442D91-FF1F-4E60-9714-C39C1BA9DB62}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -35,7 +35,7 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={B1442D91-FF1F-4E60-9714-C39C1BA9DB62}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -48,7 +48,7 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={B1442D91-FF1F-4E60-9714-C39C1BA9DB62}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
@@ -61,12 +61,25 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={B1442D91-FF1F-4E60-9714-C39C1BA9DB62}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-g -Wall
 TraceCmdString=
 DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
 [File005]
+Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q3\Timer2.o
+Folder=Intermediary
+DeviceName=PIC24FJ64GA002
+LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
+LanguageToolID={B1442D91-FF1F-4E60-9714-C39C1BA9DB62}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File006]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q3\Assign_1_Q3.cof
 Folder=Output
 DeviceName=PIC24FJ64GA002
@@ -74,12 +87,12 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={6836D8CA-42BB-48FB-9E77-3F0AA8005073}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=
 DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PICKIT2=1 --defsym=__ICD2RAM=1
-[File006]
+[File007]
 Location=D:\UTAR\UEEA4663 EMBEDDED SYSTEM DESIGN\Assignment 1\Q3\Assign_1_Q3.hex
 Folder=Output
 DeviceName=PIC24FJ64GA002
@@ -87,7 +100,7 @@ LanguageToolSuiteID={9BCCB495-CD65-480A-BA76-63D8E78B117F}
 LanguageToolID={6836D8CA-42BB-48FB-9E77-3F0AA8005073}
 LanguageToolLocation=C:\Program Files (x86)\Microchip\xc16\v1.24\bin\xc16-ld.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\src\libm||$(INCDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\inc||$(LIBDIR)|C:\Program Files (x86)\Microchip\xc16\v1.24\lib||$(LKRDIR)||
-SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c||<obj>||<lib>||<lkr>||
+SOLK=<src>|IOCon.c|main.c|System.c|Timer1.c|ADC.c|Timer2.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
 ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
 TraceCmdString=

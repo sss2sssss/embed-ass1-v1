@@ -26,6 +26,7 @@ Command:
   System.o \
   Timer1.o \
   ADC.o \
+  Timer2.o \
   -LC:\Program Files (x86)\Microchip\xc16\v1.24\lib \
   -Tp24FJ64GA002.gld.00 \
   --defsym=__MPLAB_BUILD=1 \
@@ -53,10 +54,11 @@ Program Memory  [Origin = 0x200, Length = 0xa9fc]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0x9e            0xed  (237)
-.text                        0x29e               0x2e2           0x453  (1107)
-.dinit                       0x580                 0xe            0x15  (21)
+.text                        0x29e               0x37c           0x53a  (1338)
+.dinit                       0x61a                0x1e            0x2d  (45)
+.text                        0x638                0x2a            0x3f  (63)
 
-                     Total program memory used (bytes):          0x555  (1365) 2%
+                     Total program memory used (bytes):          0x693  (1683) 2%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -64,9 +66,11 @@ Data Memory  [Origin = 0x800, Length = 0x2000]
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
 .icd                         0x800                0x50            0x50  (80)
-.nbss                        0x850                   0            0x12  (18)
+.nbss                        0x850                   0            0x14  (20)
+.ndata                       0x864                   0             0x4  (4)
+.nbss                        0x868                   0             0x2  (2)
 
-                        Total data memory used (bytes):           0x62  (98) 1%
+                        Total data memory used (bytes):           0x6a  (106) 1%
 
 
 Dynamic Memory Usage
@@ -74,9 +78,9 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x862                              0x1f9e  (8094)
+stack                        0x86a                              0x1f96  (8086)
 
-                        Maximum dynamic memory (bytes):         0x1f9e  (8094)
+                        Maximum dynamic memory (bytes):         0x1f96  (8086)
 
 
 External Symbols in Data Memory (by address):
@@ -84,56 +88,70 @@ External Symbols in Data Memory (by address):
                     0x0850                  _Cycle1
                     0x0852                  _Cycle2
                     0x0854                  _Cycle3
-                    0x0856                  _status
-                    0x0858                  _divider
-                    0x085a                  _ADCValue
-                    0x085c                  _avgADCValue
-                    0x085e                  _count
-                    0x0860                  _ADCPtr
+                    0x0856                  _dCycle
+                    0x0858                  _status
+                    0x085a                  _divider
+                    0x085c                  _ADCValue
+                    0x085e                  _avgADCValue
+                    0x0860                  _count
+                    0x0862                  _ADCPtr
+                    0x0864                  _SW1
+                    0x0866                  _SW2
+                    0x0868                  _debouncing_counter
 
 External Symbols in Data Memory (by name):
 
-                    0x0860                  _ADCPtr
-                    0x085a                  _ADCValue
+                    0x0862                  _ADCPtr
+                    0x085c                  _ADCValue
                     0x0850                  _Cycle1
                     0x0852                  _Cycle2
                     0x0854                  _Cycle3
-                    0x085c                  _avgADCValue
-                    0x085e                  _count
-                    0x0858                  _divider
-                    0x0856                  _status
+                    0x0864                  _SW1
+                    0x0866                  _SW2
+                    0x085e                  _avgADCValue
+                    0x0860                  _count
+                    0x0856                  _dCycle
+                    0x0868                  _debouncing_counter
+                    0x085a                  _divider
+                    0x0858                  _status
 
 External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00022c                  __psv_init
-                  0x00023c                  __data_init_standard
                   0x00023c                  __data_init
+                  0x00023c                  __data_init_standard
                   0x00029a                  __DefaultInterrupt
                   0x00029e                  _Timer1_Init
                   0x0002cc                  __T1Interrupt
                   0x0002f2                  _LED_Blinking
-                  0x000484                  _ADC_Init
-                  0x0004ee                  _ADC_Convert
-                  0x000538                  _MCU_Init
-                  0x00055a                  _IO_Init
-                  0x00056e                  _main
+                  0x000486                  _Timer2_Init
+                  0x0004b4                  __T2Interrupt
+                  0x0004da                  _sw_debouncing
+                  0x000544                  _ADC_Init
+                  0x0005ae                  _ADC_Convert
+                  0x0005f8                  _MCU_Init
+                  0x000638                  _main
+                  0x00064e                  _IO_Init
 
 External Symbols in Program Memory (by name):
 
-                  0x0004ee                  _ADC_Convert
-                  0x000484                  _ADC_Init
-                  0x00055a                  _IO_Init
+                  0x0005ae                  _ADC_Convert
+                  0x000544                  _ADC_Init
+                  0x00064e                  _IO_Init
                   0x0002f2                  _LED_Blinking
-                  0x000538                  _MCU_Init
+                  0x0005f8                  _MCU_Init
                   0x00029e                  _Timer1_Init
+                  0x000486                  _Timer2_Init
                   0x00029a                  __DefaultInterrupt
                   0x0002cc                  __T1Interrupt
+                  0x0004b4                  __T2Interrupt
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x00056e                  _main
+                  0x000638                  _main
+                  0x0004da                  _sw_debouncing
 
 Memory Configuration
 
@@ -155,6 +173,7 @@ LOAD main.o
 LOAD System.o
 LOAD Timer1.o
 LOAD ADC.o
+LOAD Timer2.o
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F\libpPIC24Fxxx-coff.a
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-coff.a
                     0xabfc                  __CONFIG2 = 0xabfc
@@ -257,7 +276,7 @@ __CONFIG1         0x00abfe          0x2
                   0x00001c          0x4 LONG 0x29a DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x29a DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x29a DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x29a DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x4b4 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x29a DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x29a DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x29a DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -385,7 +404,7 @@ __CONFIG1         0x00abfe          0x2
                   0x00011c          0x4 LONG 0x29a DEFINED (__AltInterrupt4)?ABSOLUTE (__AltInterrupt4):DEFINED (__Interrupt4)?ABSOLUTE (__Interrupt4):ABSOLUTE (__DefaultInterrupt)
                   0x00011e          0x4 LONG 0x29a DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000120          0x4 LONG 0x29a DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000122          0x4 LONG 0x29a DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000122          0x4 LONG 0x4b4 DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000124          0x4 LONG 0x29a DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000126          0x4 LONG 0x29a DEFINED (__AltSPI1ErrInterrupt)?ABSOLUTE (__AltSPI1ErrInterrupt):DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000128          0x4 LONG 0x29a DEFINED (__AltSPI1Interrupt)?ABSOLUTE (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1086,7 +1105,7 @@ LOAD data_init
 LOAD default_isr
 
 __c30_signature
-                  0x000000         0x2a
+                  0x000000         0x30
  __c30_signature
                   0x000000          0x6 IOCon.o
  __c30_signature
@@ -1098,37 +1117,55 @@ __c30_signature
  __c30_signature
                   0x000018          0x6 ADC.o
  __c30_signature
-                  0x00001e          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-coff.a(crt0_standard.o)
+                  0x00001e          0x6 Timer2.o
  __c30_signature
-                  0x000024          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-coff.a(data_init_standard.o)
+                  0x000024          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-coff.a(crt0_standard.o)
+ __c30_signature
+                  0x00002a          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-coff.a(data_init_standard.o)
 
-.nbss               0x0850         0x12
- .nbss              0x0850          0xa Timer1.o
+.nbss               0x0850         0x14
+ .nbss              0x0850          0xc Timer1.o
                     0x0850                  Cycle1
                     0x0852                  Cycle2
                     0x0854                  Cycle3
-                    0x0856                  status
-                    0x0858                  divider
- .nbss              0x085a          0x8 ADC.o
-                    0x085a                  ADCValue
-                    0x085c                  avgADCValue
-                    0x085e                  count
-                    0x0860                  ADCPtr
+                    0x0856                  dCycle
+                    0x0858                  status
+                    0x085a                  divider
+ .nbss              0x085c          0x8 ADC.o
+                    0x085c                  ADCValue
+                    0x085e                  avgADCValue
+                    0x0860                  count
+                    0x0862                  ADCPtr
 
-.text             0x00029e        0x2e2
- .text            0x00029e        0x1e6 Timer1.o
+.ndata              0x0864          0x4
+ .ndata             0x0864          0x4 Timer2.o
+                    0x0864                  SW1
+                    0x0866                  SW2
+
+.nbss               0x0868          0x2
+ .nbss              0x0868          0x2 Timer2.o
+                    0x0868                  debouncing_counter
+
+.text             0x00029e        0x37c
+ .text            0x00029e        0x1e8 Timer1.o
                   0x00029e                  Timer1_Init
                   0x0002cc                  _T1Interrupt
                   0x0002f2                  LED_Blinking
- .text            0x000484         0xb4 ADC.o
-                  0x000484                  ADC_Init
-                  0x0004ee                  ADC_Convert
- .text            0x000538         0x22 System.o
-                  0x000538                  MCU_Init
- .text            0x00055a         0x14 IOCon.o
-                  0x00055a                  IO_Init
- .text            0x00056e         0x12 main.o
-                  0x00056e                  main
+ .text            0x000486         0xbe Timer2.o
+                  0x000486                  Timer2_Init
+                  0x0004b4                  _T2Interrupt
+                  0x0004da                  sw_debouncing
+ .text            0x000544         0xb4 ADC.o
+                  0x000544                  ADC_Init
+                  0x0005ae                  ADC_Convert
+ .text            0x0005f8         0x22 System.o
+                  0x0005f8                  MCU_Init
 
-.dinit            0x000580          0xe
- .dinit           0x000580          0xe data_init
+.dinit            0x00061a         0x1e
+ .dinit           0x00061a         0x1e data_init
+
+.text             0x000638         0x2a
+ .text            0x000638         0x16 main.o
+                  0x000638                  main
+ .text            0x00064e         0x14 IOCon.o
+                  0x00064e                  IO_Init
