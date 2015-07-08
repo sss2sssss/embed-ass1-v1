@@ -8,9 +8,14 @@
 unsigned int Cycle1=0;
 unsigned int Cycle2=0;
 unsigned int Cycle3=0;
+unsigned int dCycle=0;
 int status=0;
 int divider=0;
+int skip=0;
+bool SW1=1;
+bool SW2=1;
 void LED_Blinking();
+void sw_debouncing();
 
 void Timer1_Init(void)
 {
@@ -32,6 +37,32 @@ void __attribute__((__interrupt__, auto_psv)) _T1Interrupt(void)
 {
 	IFS0bits.T1IF = 0;		//reset timer1 interrupt flag to 0
 	LED_Blinking();
+	sw_debouncing();
+}
+
+void sw_deboucing()
+{
+	if(SW1_d!=SW1&&skip==0)
+	{
+		if(SW1_d==0)
+			SW1=0;
+		if(SW1_d==1)
+			SW1=1;
+		skip=1;
+	}
+	
+	if(SW2_d!=SW2&&skip==0)
+	{
+		if(SW2_d==0)
+			SW2=0;
+		if(SW2_d==1)
+			SW2=1;
+		skip=1;
+	}
+if(skip==1)
+	dCycle++
+if(dCycle==5)
+	skip=0
 }
 
 void LED_Blinking()
